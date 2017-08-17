@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 package javaapplication24;
+import java.util.*;
 
 /**
  *
  * @author Estudiante
  */
 public class Cuenta {
+    Scanner Flujo = new Scanner(System.in);
     public int numero;
     public int clave;
     public String dueño;
@@ -22,12 +24,18 @@ public class Cuenta {
         if(valor<this.saldo)
             this.saldo=this.saldo-valor;
         else
-            System.out.println("Saldo insufciente");
+            System.out.println("Saldo insuficiente");
     }
     public void consultar(){
-        System.out.println("Su saldo es "+this.saldo);
+        System.out.println("Sr(a) " +this.dueño +" su saldo es de $"+this.saldo);
     }
-    public void cambiar_clave(int valor){
-        this.clave=valor;
+    public void cambiar_clave(){
+        int valor=0;
+        System.out.println("Digite su nueva clave");
+        valor = Flujo.nextInt();
+        if(valor>0&&valor<10000)
+            this.clave=valor;
+        else
+            System.out.println("Parametro invalido");      
     }
 }
